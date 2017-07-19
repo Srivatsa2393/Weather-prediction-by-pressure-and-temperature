@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Slider from './slider';
+
 export default class App extends Component {
   render() {
     return (
@@ -13,7 +15,7 @@ export default class App extends Component {
 
           <div className="row">
             <div className="col-md-6">
-              Slider
+              <Slider />
             </div>
             <div className="col-md-6">
               Graph
@@ -22,7 +24,7 @@ export default class App extends Component {
 
           <div className="row">
             <div className="col-md-6">
-              Slider
+              <Slider />
             </div>
             <div className="col-md-6">
               Graph
