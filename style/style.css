@@ -1,0 +1,35 @@
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50vh;
+  width: 80vh;
+  border: 3px dashed grey;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.slider input[type=range] {
+  -webkit-appearance: none;
+  outline: none;
+  margin: 15px 0 5px 0;
+  width: 100%;
+  background: #ffbb33;
+  height: 10px;
+  border-radius: 1.5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #fffffh, 0 0 1px #ff66cc;
+  border: 0.5px solid #010101;
+}
+
+.sliderTitle{
+  font-size: 20px;
+  display: block;
+  font-weight: bold;
+}
+
+.sliderValue{
+  font-size: 20px;
+  display: block;
+  font-weight: bold;
+}

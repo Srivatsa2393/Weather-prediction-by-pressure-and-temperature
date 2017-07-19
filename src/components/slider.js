@@ -3,7 +3,15 @@ import React, { Component } from 'react';
 class Slider extends React.Component{
   render() {
     return(
-      <div>I am the slider</div>
+      <div className="slider">
+
+        <span className="sliderTitle"></span>
+
+        <input type="range" />
+
+        <span className="sliderValue"></span>
+
+      </div>
     );
   }
 }
