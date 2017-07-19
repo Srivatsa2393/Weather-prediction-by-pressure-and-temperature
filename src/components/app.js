@@ -14,18 +14,34 @@ export default class App extends Component {
           </div>
 
           <div className="row">
+
             <div className="col-md-6">
-              <Slider />
+              <div className="well">
+                <Slider
+                  title="Pressure (hPa)"
+                  minimumValue = "970"
+                  maximumValue = "1030"
+                />
+              </div>
             </div>
+
             <div className="col-md-6">
               Graph
             </div>
           </div>
 
           <div className="row">
+
             <div className="col-md-6">
-              <Slider />
+              <div className="well">
+                <Slider
+                  title="temperature (°C)"
+                  minimumValue = "10"
+                  maximumValue = "35"
+                />
+              </div>
             </div>
+
             <div className="col-md-6">
               Graph
             </div>
