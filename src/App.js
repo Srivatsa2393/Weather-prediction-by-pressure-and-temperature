@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { changePressure, changeTemperature } from './actions';
+import { changePressure, changeTemperature, loadingDataForRain } from './actions';
 
 import Slider from './components/slider';
+import ChanceOfRainChart from './components/chance_of_rain_chart';
 
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.loadingDataForRain();
+  }
 
   render() {
     return (
@@ -22,15 +27,16 @@ class App extends Component {
               <div className="well">
                 <Slider
                   title="Pressure (hPa)"
-                  minimumValue = "970"
-                  maximumValue = "1030"
+                  onChange={this.props.changePressure}
+                  minValue = "970"
+                  maxValue = "1030"
                   value={this.props.pressure}
                 />
               </div>
             </div>
 
             <div className="col-md-6">
-              Graph component
+              <ChanceOfRainChart chartData={this.props.chanceOfRainData} />
             </div>
           </div>
 
@@ -40,8 +46,9 @@ class App extends Component {
               <div className="well">
                 <Slider
                   title="temperature (°C)"
-                  minimumValue = "10"
-                  maximumValue = "35"
+                  onChange={this.props.changeTemperature}
+                  minValue = "10"
+                  maxValue = "35"
                   value={this.props.temperature}
                 />
               </div>
@@ -61,14 +68,17 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return{
     pressure: state.pressure,
-    temperature: state.temperature
+    temperature: state.temperature,
+    chanceOfRainData: state.chanceOfRainData,
+    rainData: state.rainData
   }
 };
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     changePressure,
-    changeTemperature
+    changeTemperature,
+    loadingDataForRain
   }, dispatch);
 }
 

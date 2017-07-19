@@ -9,10 +9,12 @@ class Slider extends Component{
   }
 
   onChange(event){
-    const value = event.currentTarget.value;
+    let value = event.currentTarget.value;
     //console.log(value);
     this.props.onChange(value);
-    this.setState({ value });
+    this.setState({
+      value: value
+    });
   }
 
   render() {
@@ -23,9 +25,10 @@ class Slider extends Component{
 
         <input
           type="range"
-          min={this.props.minimumValue}
-          max={this.props.maximumValue}
-          onChange={() => this.onChange.bind(this)}
+          min={this.props.minValue}
+          max={this.props.maxValue}
+          onChange={this.onChange.bind(this)}
+          value={this.props.value}
         />
 
         <span className="value">{this.state.value}</span>
