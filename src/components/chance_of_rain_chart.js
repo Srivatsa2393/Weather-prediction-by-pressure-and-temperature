@@ -8,7 +8,7 @@ class ChanceOfRainChart extends Component {
         <LineChart width={650} height={350} data={this.props.chartData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <XAxis dataKey="day" label="Days"/>
-          <YAxis label="Prob %"/>
+          <YAxis label="%"/>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />

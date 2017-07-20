@@ -44,19 +44,20 @@ export default(state = DEFAULT_STATE, action) => {
     case CHANGE_PRESSURE:
       let newPressure = action.payload;
       newChanceOfRainData = generateChanceOfRainData(newPressure, state.temperature, state.rainData);
-      return Object.assign({}, state, {pressure: newPressure, chanceOfRainData : newChanceOfRainData});
-      //return { ...state, pressure: newPressure };
+      //return Object.assign({}, state, {pressure: newPressure, chanceOfRainData : newChanceOfRainData});
+      return { ...state, pressure: newPressure, chanceOfRainData: newChanceOfRainData };
 
     case CHANGE_TEMPERATURE:
       let newTemperature = action.payload;
       newChanceOfRainData = generateChanceOfRainData(state.pressure, newTemperature, state.rainData);
-      return Object.assign({}, state, {temperature: newTemperature, chanceOfRainData : newChanceOfRainData});
-      //return { ...state, temperature: newTemperature };
+      //return Object.assign({}, state, {temperature: newTemperature, chanceOfRainData : newChanceOfRainData});
+      return { ...state, temperature: newTemperature, chanceOfRainData: newChanceOfRainData };
 
     case LOADING_DATA_FOR_RAIN:
       let newRainData = action.payload.data[0].days;
       newChanceOfRainData = generateChanceOfRainData(state.pressure, state.temperature, newRainData);
-      return Object.assign({}, state, {rainData: newRainData, chanceOfRainData : newChanceOfRainData});
+      //return Object.assign({}, state, {rainData: newRainData, chanceOfRainData : newChanceOfRainData});
+      return { ...state, rainData: newRainData, chanceOfRainData: newChanceOfRainData };
 
 
     default:
