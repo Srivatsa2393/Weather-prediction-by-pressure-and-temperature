@@ -10,6 +10,8 @@ import AmountOfRainfallChart from './amount_of_rainfall_chart';
 
 class App extends Component {
 
+  //React lifecycle methods
+  //componentDidMount is used because it renders the data as soon as the component is mounted
   componentDidMount(){
     this.props.loadingDataForRain();
   }
@@ -24,7 +26,7 @@ class App extends Component {
 
           <div className="row">
 
-            <div className="col-md-6">
+            <div className="col-sm-6">
               <div className="well">
                 <Slider
                   title="Pressure (hPa)"
@@ -36,14 +38,14 @@ class App extends Component {
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-sm-6">
               <ChanceOfRainChart chartData={this.props.chanceOfRainData} />
             </div>
           </div>
 
           <div className="row">
 
-            <div className="col-md-6">
+            <div className="col-sm-6">
               <div className="well">
                 <Slider
                   title="temperature (°C)"
@@ -55,7 +57,7 @@ class App extends Component {
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-sm-6">
               <AmountOfRainfallChart chartData={this.props.rainData} />
             </div>
           </div>
@@ -66,6 +68,8 @@ class App extends Component {
   }
 }
 
+//Using ES6 arrow function rather than writing the normal functionl way
+//the value of pressure, temperature, chanceOfRainData, rainData can be passed as props inside the App component
 const mapStateToProps = (state) => {
   return{
     pressure: state.pressure,
@@ -75,6 +79,8 @@ const mapStateToProps = (state) => {
   }
 };
 
+
+//bindActionCreators with dispatch is used to send the actions to all the reducers
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     changePressure,
@@ -83,5 +89,5 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-
+//connect used to bind react and redux
 export default connect(mapStateToProps, mapDispatchToProps) (App);

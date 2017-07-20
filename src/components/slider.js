@@ -1,3 +1,4 @@
+//creating a class based component
 import React, { Component } from 'react';
 
 class Slider extends Component{
@@ -8,12 +9,14 @@ class Slider extends Component{
     };
   }
 
+  //helper method to determine the range of pressure and temperature
   onChange(event){
     let value = event.currentTarget.value;
     //console.log(value);
     this.props.onChange(value);
+    //in ES6 {value: value} === { value }
     this.setState({
-      value: value
+      value
     });
   }
 
